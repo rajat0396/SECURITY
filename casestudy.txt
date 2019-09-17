@@ -1,0 +1,42 @@
+
+                                                    COBOL CASE STUDY ( RAJAT KUMAR ARORA AND SOWMIYA P)
+
+
+MAKING A PS FILE I.E PET MASTER FILE AND EXTRACTING USING REPRO KSDS                                                             
+
+FD PETMASTER.
+01 INREC.  
+   05 PET-ID      PIC 9(3).  
+   05 PET-TYPE    PIC 9. 
+   05 BREED       PIC X(10). 
+   05 DOP         PIC X(6) 
+   05 CP          PIC 9(4)V9(2).
+   05 QUANTITY-A  PIC 9(2).  
+   
+
+
+ANOTHER PS FILE I.E SALE TRANSACTION FILE  
+
+FD SALETRANS.
+01 INREC1.
+    05 PET-ID            PIC 9(3).
+    05 MRP               PIC 9(4)V9(2). 
+    05 QUANTITY-BOUGHT   PIC 9(2). 
+
+
+BOTH KSDS AND PS ( SALE TRANSACTION FILE) IS INPUT TO THE ESDS FILE 
+
+FD PROCESSEDSALES. 
+01 OUTREC. 
+   05 PET-ID      PIC 9(3). 
+   05 DOP         PIC X(6).
+   05 QUANTITY    PIC 9(2). 
+   05 TOTAL-PRICE PIC 9(5)V9(2).
+   05 LOSS/PROFIT PIC S9(4)V9(2).
+
+
+MAKE REPORT FOR THE PROCESSED SALES FIND PROFIT OR LOSS AND FIND UNPROCCESSED DATA. 
+
+ 
+ 
+                                                   
