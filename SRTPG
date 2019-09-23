@@ -1,0 +1,30 @@
+        ID DIVISION.                                                    00010000
+        PROGRAM-ID. SRTPGM.                                             00020000
+        ENVIRONMENT DIVISION.                                           00030000
+        INPUT-OUTPUT SECTION.                                           00040000
+        FILE-CONTROL.                                                   00050000
+                 SELECT INFILE2 ASSIGN TO DD1.                          00060000
+                 SELECT SORT-FILE ASSIGN TO SORTWK01.                   00070000
+        DATA DIVISION.                                                  00080000
+        FILE SECTION.                                                   00090000
+        FD INFILE2.                                                     00100000
+        01 FS-SALES.                                                    00110000
+           05 SPET-ID     PIC 9(3).                                     00120000
+           05 SMRP        PIC 9(4)V9(2).                                00130000
+           05 SQUANTITYB  PIC 9(2).                                     00131000
+           05 FILLER      PIC X(69).                                    00132000
+        SD SORT-FILE.                                                   00133000
+        01 SORT-REC.                                                    00134000
+           05 SORT-FLD    PIC X(3).                                     00135000
+           05 FILLER      PIC X(77).                                    00136000
+        PROCEDURE DIVISION.                                             00137000
+        MAIN-PARA.                                                      00138000
+                  DISPLAY " SORT "                                      00139000
+                  DISPLAY "SECOND "                                     00140000
+                  SORT SORT-FILE                                        00150000
+                  ASCENDING KEY SORT-FLD                                00160000
+                  USING INFILE2 GIVING INFILE2                          00170000
+                  IF SORT-RETURN NOT = 0                                00180000
+                         DISPLAY "SORT RETURN" SORT-RETURN              00190000
+                  END-IF                                                00200000
+                  EXIT PROGRAM.                                         00210000
